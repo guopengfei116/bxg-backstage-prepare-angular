@@ -11,13 +11,20 @@
 </head>
 <body ng-app="app">
     <main ng-view></main>
+    <!-- 第三方包  -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-route/angular-route.js"></script>
+    <!-- 主模块，里面定义了app模块关联视图 -->
     <script src="/src/js/main.js"></script>
+    <!-- 辅模块，各种组件 -->
     <script src="/src/components/common/aside/aside.js"></script>
     <script src="/src/components/common/header/header.js"></script>
     <script src="/src/components/index/index.js"></script>
     <script src="/src/components/login/login.js"></script>
+    <!-- 辅模块，各种常量配置 -->
+    <script src="/src/js/constant/web_api.js"></script>
+    <!-- 辅模块，各种公共业务逻辑 -->
+    <script src="/src/js/service/http.js"></script>
 </body>
 </html>
