@@ -16,19 +16,6 @@
             <div class="panel panel-default">
               <div class="panel-body">
                 <form action="" class="form-inline">
-                    <select name="" class="form-control input-sm">
-                        <option value="">按年龄</option>
-                    </select>
-                    <select name="" class="form-control input-sm">
-                        <option value="">按性别</option>
-                    </select>
-                    <select name="" class="form-control input-sm">
-                        <option value="">按地区</option>
-                    </select>
-                    <select name="" class="form-control input-sm">
-                        <option value="">按日期</option>
-                    </select>
-                    <button type="button" class="btn btn-success btn-sm">筛选</button>
                     <div class="input-group pull-right">
                         <input type="text" class="form-control input-sm" ng-model="searchKey">
                         <span class="input-group-btn">
@@ -58,9 +45,9 @@
                           <td>{{ item.tc_gender == '0'? '男': '女' }}</td>
                           <td>{{ item.cellphone }}</td>
                           <td>
-                              <a href="#teacherModal" data-toggle="modal" data-target="#teacherModal" class="btn btn-info btn-xs">查 看</a>
+                              <a  data-toggle="modal" data-target="#teacherModal" class="btn btn-info btn-xs">查 看</a>
                               <a href="#!/teacher/edit" class="btn btn-info btn-xs">编 辑</a>
-                              <a href="javascript:;" class="btn btn-warning btn-xs">注 销</a>
+                              <a href="javascript:;" ng-click="changeStatus(item)" class="btn btn-warning btn-xs">{{ item.tc_status == 0? '注销': '启用' }}</a>
                           </td>
                       </tr>
                   </tbody>

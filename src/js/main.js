@@ -19,7 +19,8 @@ angular.module('app', [
   'api',
   
   // 自己的公共配置服务
-  'web_api'
+  'web_api',
+  'avatar'
 ])
   .config(['$routeProvider', function($routeProvider) {
     $routeProvider
@@ -75,3 +76,23 @@ angular.module('app', [
         templateUrl: '/src/html/404.html'
       })
   }])
+
+  // run方法是在angular解析视图之前执行的，一般我们会在这里面做一些权限校验
+  .run([
+    '$location',
+    function($location) {
+      // 通过判断本地cookie中是否存在PHPSESSID，来校验用户是否已登陆
+      // 如果在login页面，用户已经登陆了，帮用户自动跳转到index页，
+      // 如果在其他页面，用户未登陆，强制给他跳转到login页
+      var isLogin = /PHPSESSID=/.test(document.cookie);
+      var path = $location.$$path;
+
+      // 登陆页已登陆，转首页
+      // 其他页未登陆，转登陆
+      if(path == '/login' && isLogin) {
+        $location.path('/');
+      }else if(!isLogin) {
+        $location.path('/login');
+      }
+    }
+  ]);
