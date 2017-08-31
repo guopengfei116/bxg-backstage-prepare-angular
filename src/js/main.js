@@ -8,6 +8,8 @@ angular.module('app', [
   'header', 
   'index', 
   'login',
+  'profile',
+  'repass',
 
   // 自己的业务逻辑服务
   'http',
@@ -26,6 +28,12 @@ angular.module('app', [
       })
       .when('/login', {
           template: '<ngl-login></ngl-login>'
+      })
+      .when('/profile', {
+        template: '<ngl-aside/><ngl-profile/>'
+      })
+      .when('/repass', {
+        template: '<ngl-aside/><ngl-repass/>'
       })
       .otherwise({
         templateUrl: '/src/html/404.html'
