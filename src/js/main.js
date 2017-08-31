@@ -11,6 +11,7 @@ angular.module('app', [
 
   // 自己的业务逻辑服务
   'http',
+  'api',
   
   // 自己的公共配置服务
   'web_api'

@@ -14,8 +14,9 @@ angular.module('login', [])
   .controller('nglLoginCtrl', [
     '$scope',
     '$location',
-    'api',
-    function($scope, $location, api) {
+    'WEB_API',
+    'http',
+    function($scope, $location, WEB_API, http) {
 
       // 登陆功能
       $scope.user = {
@@ -24,16 +25,13 @@ angular.module('login', [])
       };
       $scope.login = function() {
 
-        // 调用封装好的login方法请求接口，这里我们不需要关心接口的method与url，
-        // 只需要关心请求成功后做什么就可以了。
-        api.login(function(data) {
-          localStorage.setItem('userInfo', JSON.stringify(data.result));
+        // api => { url: '/v6/login', method: 'post' }
+        var api = WEB_API.login;
+        // 这里中括号是写法调用get、post方法
+        http[api.method](api.url, function(data) {
+          localStorage.setItem('userInfo', JSON.stringify(data));
           $location.path('/');
         }, $scope.user);
       };
-
-      // 历史登陆用户的头像回显
-      var userInfo = JSON.parse(localStorage.getItem('userInfo'));
-      $scope.userInfo = userInfo || { tc_avatar: '/public/img/default.png' };
     }
   ]);
