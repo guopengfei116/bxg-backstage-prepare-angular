@@ -4,6 +4,7 @@ angular.module('app', [
   'ngRoute', 
 
   // 自己的组件
+  'course',
   'aside', 
   'header', 
   'index', 
@@ -34,6 +35,21 @@ angular.module('app', [
       })
       .when('/repass', {
         template: '<ngl-aside/><ngl-repass/>'
+      })
+      .when('/course/add', {
+        template: '<ngl-aside/><ngl-cs-add/>'
+      })
+      .when('/course/edit1', {
+        template: '<ngl-aside/><ngl-cs-edit1/>'
+      })
+      .when('/course/edit2', {
+        template: '<ngl-aside/><ngl-cs-edit2/>'
+      })
+      .when('/course/edit3', {
+        template: '<ngl-aside/><ngl-cs-edit3/>'
+      })
+      .when('/course/list', {
+        template: '<ngl-aside/><ngl-cs-list/>'
       })
       .otherwise({
         templateUrl: '/src/html/404.html'
