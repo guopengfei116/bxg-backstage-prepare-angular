@@ -11,6 +11,12 @@ angular.module('web_api', [])
         logout: {
             url: '/v6/logout',
             method: 'post'
+        },
+
+        // 修改密码
+        repass: {
+            url: '/v6/teacher/repass',
+            method: 'post'
         }
     });
  
