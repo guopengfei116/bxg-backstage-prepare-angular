@@ -6,6 +6,7 @@ angular.module('app', [
   // 自己的组件
   'course',
   'category',
+  'teacher',
   'aside', 
   'header', 
   'index', 
@@ -36,6 +37,15 @@ angular.module('app', [
       })
       .when('/repass', {
         template: '<ngl-aside/><ngl-repass/>'
+      })
+      .when('/teacher/add', {
+        template: '<ngl-aside/><ngl-tc-add/>'
+      })
+      .when('/teacher/edit', {
+        template: '<ngl-aside/><ngl-tc-edit/>'
+      })
+      .when('/teacher/list', {
+        template: '<ngl-aside/><ngl-tc-list/>'
       })
       .when('/category/add', {
         template: '<ngl-aside/><ngl-cg-add/>'
